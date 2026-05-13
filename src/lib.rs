@@ -1,8 +1,9 @@
 use std::io::Write;
 
 pub enum PgBarStyle {
-    DoubleArrow,
     Blocks,
+    DoubleArrow,
+    Standart,
 }
 
 pub struct ProgressBar {
@@ -69,16 +70,21 @@ impl ProgressBar {
 
     pub fn set_style(&mut self, style: PgBarStyle) {
         match style {
+            PgBarStyle::Blocks => {
+                self.set_border_chars(['|', '|']);
+                self.set_empty_char(' ');
+                self.set_filled_char('█', true);
+            },
             PgBarStyle::DoubleArrow => {
                 self.set_border_chars(['[', ']']);
                 self.set_current_char('>');
                 self.set_empty_char(' ');
                 self.set_filled_char('=', false);
             },
-            PgBarStyle::Blocks => {
+            PgBarStyle::Standart => {
                 self.set_border_chars(['|', '|']);
-                self.set_empty_char(' ');
-                self.set_filled_char('█', true);
+                self.set_empty_char('-');
+                self.set_filled_char('#', true);
             },
         }
     }
