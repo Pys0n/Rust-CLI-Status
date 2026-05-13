@@ -19,6 +19,7 @@ pub struct ProgressBar {
 }
 
 impl ProgressBar {
+    /// Creates a new Progress Bar.
     pub fn new() -> Self {
         ProgressBar {
             length: 10,
@@ -33,18 +34,22 @@ impl ProgressBar {
         }
     }
 
+    /// Sets the Progress of the Progress Bar. 
     pub fn set_progress(&mut self, progress: u32) {
         self.progress = progress;
     }
 
+    /// Sets the maximum progress of the Progress Bar.
     pub fn set_maximum(&mut self, maximum: u32) {
         self.maximum = maximum;
     }
 
+    /// Sets the length of the Progress Bar (without title and border).
     pub fn set_length(&mut self, length: u8) {
         self.length = length;
     }
 
+    /// Sets the character of the filled part of the ProgressBar to `filled_char`.
     pub fn set_filled_char(&mut self, filled_char: char, set_current_char: bool) {
         self.filled_char = filled_char;
         if set_current_char {
@@ -52,22 +57,27 @@ impl ProgressBar {
         };
     }
 
+    /// Sets the last character of the filled part of the Progress Bar to `current_char`.
     pub fn set_current_char(&mut self, current_char: char) {
         self.current_char = current_char;
     }
 
+    /// Sets the character of the not filled part of the Progress Bar to `empty_char`.
     pub fn set_empty_char(&mut self, empty_char: char) {
         self.empty_char = empty_char;
     }
 
+    /// Sets the Border of the Progress Bar to the items in `border_chars`.
     pub fn set_border_chars(&mut self, border_chars: [char; 2]) {
         self.border_chars = border_chars;
     }
 
+    /// Sets the title of the Progress Bar.
     pub fn set_title(&mut self, title: String) {
         self.title = title;
     }
 
+    /// Sets the style of the ProgressBar to one of the `PgBarStyle`s.
     pub fn set_style(&mut self, style: PgBarStyle) {
         match style {
             PgBarStyle::Blocks => {
@@ -89,18 +99,67 @@ impl ProgressBar {
         }
     }
 
+    /// Enables/Disables the Progress Text behind the Progress Bar. 
     pub fn set_show_progress(&mut self, show_progress: bool) {
         self.show_progress = show_progress;
     }
 
+    /// Resets the Progress to 0.
     pub fn reset_progress(&mut self) {
         self.progress = 0;
     }
 
+    /// Increases the progress by `increasement`.
     pub fn increase_progress(&mut self, increasement: u32) {
         self.progress += increasement;
     }
 
+    /// Returns the length of the Progress Bar (without title and border).
+    pub fn get_length(&self) -> u8 {
+        self.length
+    }
+
+    /// Returns the Progress of the Progress Bar.
+    pub fn get_progress(&self) -> u32 {
+        self.progress
+    }
+
+    /// Returns the maximum Progress of the Progress Bar.
+    pub fn get_maximum(&self) -> u32 {
+        self.maximum
+    }
+
+    /// Returns the title of the Progress Bar.
+    pub fn get_title(&self) -> &String {
+        &self.title
+    }
+
+    /// Returns the character of the filled part of the Progress Bar.
+    pub fn get_filled_char(&self) -> char {
+        self.filled_char
+    }
+
+    /// Returns the character of the empty part of the Progress Bar.
+    pub fn get_empty_char(&self) -> char {
+        self.empty_char
+    }
+
+    /// Returns the last character of the filled part of the Progress Bar.
+    pub fn get_current_char(&self) -> char {
+        self.current_char
+    }
+
+    /// Returns the border characters of the Progress Bar.
+    pub fn get_border_chars(&self) -> [char; 2] {
+        self.border_chars
+    }
+
+    /// Returns the current state of `show_progress`.
+    pub fn get_show_progress(&self) -> bool {
+        self.show_progress
+    }
+
+    /// Returns the Progress Bar as a String.
     pub fn get_string(&self) -> String {
         let mut pg_bar_str = self.title.clone();
         if self.title.len() > 0 {
@@ -128,6 +187,7 @@ impl ProgressBar {
         return pg_bar_str; 
     }
 
+    /// Prints the Progress Bar to the CLI.
     pub fn print(&self) {
         print!("\r{}", self.get_string());
         std::io::stdout().flush().unwrap();
