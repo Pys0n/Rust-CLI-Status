@@ -245,66 +245,32 @@ Updates the Spinner to it's next state and prints it.
 There are currently seven styles:
 
 `SpinnerStyle::ASCII`:
-```
-/
--
-\
-```
+
+<img width="100" height="100" alt="SpinnerStyle::ASCII" src="./.gifs/ASCII.gif" />   
 
 `SpinnerStyle::ASCIILongDash`:
-```
-/
-—
-\
-```
+
+<img width="100" height="100" alt="SpinnerStyle::ASCIILongDash" src="./.gifs/ASCIILongDash.gif" />   
 
 `SpinnerStyle::ASCIILongDashExtended`:
-```
-/
-—
-\
-|
-```
+
+<img width="100" height="100" alt="SpinnerStyle::ASCIILongDashExtended" src="./.gifs/ASCIILongDashExtended.gif" />   
 
 `SpinnerStyle::BrailleSpinner`:
-```
-⠇
-⠋
-⠙
-⠸
-⠴
-⠦
-```
+
+<img width="100" height="100" alt="SpinnerStyle::BrailleSpinner" src="./.gifs/BrailleSpinner.gif" />   
 
 `SpinnerStyle::BrailleSpinnerMinimalBig`:
-```
-⠏
-⠹
-⠼
-⠧
-```
+
+<img width="100" height="100" alt="SpinnerStyle::BrailleSpinnerMinimalBig" src="./.gifs/BrailleSpinnerMinimalBig.gif" />   
 
 `SpinnerStyle::BrailleSpinnerMinimalSmall`:
-```
-⠋
-⠙
-⠚
-⠓
-```
+
+<img width="100" height="100" alt="SpinnerStyle::BrailleSpinnerMinimalSmall" src="./.gifs/BrailleSpinnerMinimalSmall.gif" />   
 
 `SpinnerStyle::BrailleSpinnerSmooth`:
-```
-⠋
-⠙
-⠹
-⠸
-⠼
-⠴
-⠦
-⠧
-⠇
-⠏
-```
+
+<img width="100" height="100" alt="SpinnerStyle::BrailleSpinnerSmooth" src="./.gifs/BrailleSpinnerSmooth.gif" />   
 
 Don't forget to use this line of code:
 ```rust
