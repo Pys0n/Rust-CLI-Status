@@ -1,6 +1,6 @@
-# CLI Progress Bar
+# CLI Status
 
-A customizable Progress Bar for the Rust CLI.
+A customizable Progress Bar and Spinner for the Rust CLI.
 
 ## Documentation
 
