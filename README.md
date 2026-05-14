@@ -4,22 +4,28 @@ A customizable Progress Bar for the Rust CLI.
 
 ## Documentation
 
-To use the library use:
+To use the Progress Bar use:
 ```rust
-use cli_progress_bar::{ProgressBar, PgBarStyle}
+use cli_status::{ProgressBar, ProgressBarStyle}
 ```
-or always type `cli_progress_bar::` infront of `ProgressBar` and `PgBarStyle`
+or always type `cli_status::` infront of `ProgressBar` and `ProgressBarStyle`
+
+To use the Spinner use:
+```rust
+use cli_status::{Spinner, SpinnerStyle}
+```
+or always type `cli_status::` infront of `Spinner` and `SpinnerStyle`
 
 ### ProgressBar
 
 You can create a new ProgressBar by using this code:
 ```rust
-let mut pg_bar = cli_progress_bar::ProgressBar::new();
+let mut pg_bar = cli_status::ProgressBar::new();
 ```
 
 Or this code:
 ```rust
-use cli_progress_bar::ProgressBar
+use cli_status::ProgressBar
 
 let mut pg_bar = ProgressBar::new();
 ```
@@ -143,8 +149,8 @@ Title |#######---|
 ```
 
 
-#### ProgressBar.set_style(style: PgBarStyle);
-Sets the style of the ProgressBar to one of the `PgBarStyle`s.
+#### ProgressBar.set_style(style: ProgressBarStyle);
+Sets the style of the ProgressBar to one of the `ProgressBarStyle`s.
 
 
 #### ProgressBar.set_title(title: String);
@@ -153,29 +159,155 @@ Sets the title of the Progress Bar.
 If set to `""`, the title, and the automatic generated space after it, will not appear.
 
 
-### PgBarStyle
+### ProgressBarStyle
 
 There are currently three styles:
 
-`PgBarStyle::Block`:
+`ProgressBarStyle::Block`:
 ```
 Title |███████   | 70/100
 ```
 
 
-`PgBarStyle::DoubleArrow`:
+`ProgressBarStyle::DoubleArrow`:
 ```
 Title [======>   ] 70/100
 ```
 
 
-`PgBarStyle::Standart` *(default)*:
+`ProgressBarStyle::Standart` *(default)*:
 ```
 Title |#######---| 70/100
 ```
 
 Don't forget to use this line of code:
 ```rust
-use cli_progress_bar::PgBarStyle
+use cli_status::ProgressBarStyle
 ```
-Or eles you would need to write `cli_progress_bar::PgBarStyle`.
+Otherwise you would need to write `cli_status::ProgressBarStyle`.
+
+
+### Spinner
+
+
+You can create a new Spinner by using this code:
+```rust
+let mut spinner = cli_status::Spinner::new();
+```
+
+Or this code:
+```rust
+use cli_status::Spinner
+
+let mut spinner = Spinner::new();
+```
+
+
+#### Spinner.finish();
+Replaces the Spinner with the `finished_char` and prints it.
+
+
+#### Spinner.get_finished_char() -> char;
+Returns the character shown when `.finish()` gets called.
+
+
+#### Spinner.get_style() -> &SpinnerStyle;
+Returns the style of the Spinner.
+
+
+#### Spinner.get_title() -> &String;
+Returns the title of the Spinner.
+
+
+#### Spinner.reset();
+Resets the Spinner to it's starting state/character.
+
+
+#### Spinner.set_finished_char(finished_char: char);
+Sets the character shown when `.finish()` gets called.
+`finished_char` is by default set to `'✔'`.
+
+
+#### Spinner.set_style(style: SpinnerStyle);
+Sets the style of the Spinner to `style`.
+
+
+#### Spinner.set_title(title: String);
+Sets the title of the Spinner.
+
+
+#### Spinner.tick();
+Updates the Spinner to it's next state and prints it.
+
+
+### SpinnerStyle
+
+There are currently seven styles:
+
+`SpinnerStyle::ASCII`:
+```
+/
+-
+\
+```
+
+`SpinnerStyle::ASCIILongDash`:
+```
+/
+—
+\
+```
+
+`SpinnerStyle::ASCIILongDashExtended`:
+```
+/
+—
+\
+|
+```
+
+`SpinnerStyle::BrailleSpinner`:
+```
+⠇
+⠋
+⠙
+⠸
+⠴
+⠦
+```
+
+`SpinnerStyle::BrailleSpinnerMinimalBig`:
+```
+⠏
+⠹
+⠼
+⠧
+```
+
+`SpinnerStyle::BrailleSpinnerMinimalSmall`:
+```
+⠋
+⠙
+⠚
+⠓
+```
+
+`SpinnerStyle::BrailleSpinnerSmooth`:
+```
+⠋
+⠙
+⠹
+⠸
+⠼
+⠴
+⠦
+⠧
+⠇
+⠏
+```
+
+Don't forget to use this line of code:
+```rust
+use cli_status::SpinnerStyle
+```
+Otherwise you would need to write `cli_status::SpinnerStyle`.

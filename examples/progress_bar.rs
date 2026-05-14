@@ -1,11 +1,11 @@
-use cli_progress_bar::{ProgressBar, PgBarStyle};
+use cli_status::{ProgressBar, ProgressBarStyle};
 use std::io::Write;
 
 fn main() {
     let mut pg_bar = ProgressBar::new();
     pg_bar.set_title(String::from("Download..."));
     pg_bar.set_length(10);
-    pg_bar.set_style(PgBarStyle::DoubleArrow);
+    pg_bar.set_style(ProgressBarStyle::DoubleArrow);
     pg_bar.set_show_progress(true);
     
     for i in 0..11 {
