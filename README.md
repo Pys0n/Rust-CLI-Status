@@ -78,7 +78,7 @@ Increases the progress by `increasement`.
 #### ProgressBar::new() -> Self;
 Creates a new Progress Bar with the following settings:
 
-```
+```rust
 length: 10,
 progress: 0,
 maximum: 100,
@@ -220,7 +220,13 @@ Returns the title of the Spinner.
 
 
 #### Spinner::new() -> Self;
-Creates a new Spinner.
+Creates a new Spinner with the following settings:
+```rust
+title: String::from("Loading..."),
+style: SpinnerStyle::ASCII,
+finished_char: '✔',
+state: 0,
+```
 
 
 #### Spinner.reset();
