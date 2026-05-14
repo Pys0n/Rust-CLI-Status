@@ -69,7 +69,7 @@ impl Spinner {
             SpinnerStyle::ASCIILongDash => "/—\\",
             SpinnerStyle::ASCIILongDashExtended => "/—\\|",
             SpinnerStyle::BrailleSpinner => "⠇⠋⠙⠸⠴⠦",
-            SpinnerStyle::BrailleSpinnerMinimalBig => "⠏⠹⠼⠧",
+            SpinnerStyle::BrailleSpinnerMinimalBig => "⠏⠛⠹⠼⠶⠧",
             SpinnerStyle::BrailleSpinnerMinimalSmall => "⠋⠙⠚⠓",
             SpinnerStyle::BrailleSpinnerSmooth => "⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏",
         };
