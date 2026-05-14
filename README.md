@@ -219,6 +219,10 @@ Returns the style of the Spinner.
 Returns the title of the Spinner.
 
 
+#### Spinner::new() -> Self;
+Creates a new Spinner.
+
+
 #### Spinner.reset();
 Resets the Spinner to it's starting state/character.
 

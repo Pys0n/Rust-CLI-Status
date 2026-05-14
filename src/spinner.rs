@@ -18,6 +18,7 @@ pub struct Spinner {
 }
 
 impl Spinner {
+    /// Creates a new Spinner.
     pub fn new() -> Self {
         Self {
             title: String::from("Loading..."),
